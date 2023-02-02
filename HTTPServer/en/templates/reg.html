@@ -1,0 +1,15 @@
+<center>
+<p>Register:</p>
+<noscript>
+	<form action="/registration" method="GET">
+</noscript>
+   <div> <!--  -->
+    Login: <input type=textarea id=workname name="workname"></br>
+    Pass: <input type=password id=workpass name="workpass"></br>
+    Password confirmation: <input type=password id=workpass2 name="workpass2"></br>
+    Captcha: <input type=text id=captchaText name="captchaText"></br>
+    <button onclick="doRegistration()">Register</button>
+  </div></br>
+  <img src="/captcha?w=get" alt="captcha" id="catpcha" > <br/>
+    <button onclick="reloadCaptcha()">Reload captcha</button>
+</center>
