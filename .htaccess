@@ -1,0 +1,5 @@
+RewriteEngine  on
+#RewriteRule ^/?restapi/(.*)$ http://localhost:8081/$1
+#RewriteRule ^/?restapi/(.*)$ http://localhost:8081/$1
+
+#ProxyPassReverse /restapi http://internal.example.com/
