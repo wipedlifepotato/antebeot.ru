@@ -14,7 +14,7 @@
 </script>
 <center>
   <p>OutPut: </p>
-  <form action="/api" method="GET">
+  <form action="/restapi/api" method="GET">
     <input type="hidden" name="w" value="output" />
     WorkName: <input type=textarea name="acc" /></br>
     Password: <input type=password name="pass" /></br>
@@ -24,7 +24,7 @@
     Captcha text: <input type=text name="captchaText"></br>
     <input type=submit value=outputfrombalance>
   </form></br>
-  <img src="/captcha?w=get" alt="captcha" id="catpcha" > <br/>
+  <img src="/restapi/captcha?w=get" alt="captcha" id="catpcha" > <br/>
     <button onclick="reloadCaptcha()">reload captcha</button>
 </center>
 <!-- refactoring will be -->

@@ -1,38 +1,60 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Просто пул</title>
-	<meta charset=utf-8>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-XSS-Protection" content="1"/>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; "/> -->
+    <link rel="stylesheet" href="/css/main.css">
+    <title></title>
 </head>
 <body>
-	<p>Добро пожаловать на пул тестнетовского госткойна. А так же будующего обменника</p>
-<p>Инструкция:</p><ol>
-<li> Первое что нужно, запустить кошелек в testnet режиме. Для этого нужно добавить -testnet в свойствах файла, к параметрам, аргументам программы<br/>Если используется Windows, то кликните правой кнопкой мыши по папке зажав shift, далее откройте командную строку и введите без скобок `./gostcoin-qt -testnet`</li>
+<nav class="uk-navbar-container" uk-navbar style="padding-left: 25px;">
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+        </ul>
+    </div>
+</nav>
+<noscript>
+Enable JavaScript for usage. Another way use JavaFX client for usage. Or our Telegram Bot. 
+---
+Hey, paranoid, enable javascript. they see you even without javascript.
+</noscript>
 
-<li> Скачать майнер </li>
-<ul>
-	<li> windows: <a href="minerForWindowsBundle.zip">WindowsBundle</a> нажмите правой кнопкой мыши на .bat и измените содержимое. измените workname и workpass на свои.</li>
-	<li> linux: https://github.com/GOSTSec/cpuminer-gostd compile it </li>
-	<li> Андроид: <a href="android.apk">android.apk</a>; так же можете использовать userland если знаете как</li>
-</ul>
-</ol>
-<p><a href="ApiReference.html">Api reference</a></p>
-
-<ol>
-	<li><a href="empty.html">...</a></li>
-</ol>
-
-<li>GetBalance: </li>
-<form action="/api" method="GET">
-	<input type="hidden" name="w" value="getbalance" />
-	WorkName: <input type=textarea name="ac"></br>
-	<input type=submit value=getBalance>
-</form>
-<a href=/dashboard>Dashboard</a><br/>
-<a href=/api?w=ReserveGet>reserve</a>
-<pre>
-3334 - порт самого пула, используйте http протокол для майнинга. stratum не доделан. Пул умеет заменьшать сложность для майнинга для проверки майнит ли человек или нет.
-пул не доделан из-за подписей для сборки блока в stratum' протоколе. а именно входящий адрес. так же в данной криптовалюте изменен хэш  для merkleyRoot, что немного усложняет. сервер будет выдавать задания для stratum, но они никогда не собирутся/не будут корректными 
-Так же, всё тут использует тестнет
-</p>
+<!-- scripts -->
+<script src="/js/jquery.js" type="text/javascript"></script>
+<script src="/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="/js/cursor.js" type="text/javascript"></script>
+<script src="/js/functions.js" type="text/javascript"></script>
+<script src="/js/pages.js" type="text/javascript"></script>
+<script src="/js/uikit.min.js"></script>
+<script type="text/javascript">
+function loadNavbar()
+{
+	let navbar = $(".uk-navbar-nav")
+	if (!userIsSigned())
+	{
+	 navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('auth', 'Авторизация')\">Авторизация</a></li>")
+	 navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('reg', 'Registration')\">Регистрация</a></li>")	
+	}
+	else
+	{
+	  navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('user', 'Профиль')\">Профиль</a></li>")
+	  navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('exchange', 'Обмен')\">Обмен</a></li>")
+	  navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('withdraw', 'Вывод')\">Вывод</a></li>")
+	  navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('usersettings', 'Настройки пользователя')\">Настройки</a></li>")
+	  navbar.append("<li><a href=\"/restapi/graph.html\"\">График</a></li>")
+	  navbar.append("<li><a href=\"/restapi/ru/cryptopool.html\"\">О пуле</a></li>")
+	}
+}
+loadNavbar()
+startTimerForSessionRefresh(25)
+</script>
+<div id="content"></div>
+<div id='alertBox' style="display: none;">
+	<p id="alertTitle">ERROR!</p>
+	<b id="alertMsg"></b>
+	<p><button onclick="hideAlertBox()" id="alertButton">OK</button></p>
+</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <center>
 <p>Register:</p>
 <noscript>
-	<form action="/registration" method="GET">
+	<form action="/restapi/registration" method="GET">
 </noscript>
    <div> <!--  -->
     Логин: <input type=textarea id=workname name="workname"></br>
@@ -10,6 +10,6 @@
     Каптча: <input type=text id=captchaText name="captchaText"></br>
     <button onclick="doRegistration()">Register</button>
   </div></br>
-  <img src="/captcha?w=get" alt="captcha" id="catpcha" > <br/>
+  <img src="/restapi/captcha?w=get" alt="captcha" id="catpcha" > <br/>
     <button onclick="reloadCaptcha()">перезагрузка капчи</button>
 </center>

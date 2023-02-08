@@ -1,0 +1,64 @@
+html
+{
+	background-image: url(../imgs/memphis-mini.png);
+}
+#languageSelect ul, #languageSelect li  {
+	display: inline;
+	display: inline-block;
+	list-style:none;
+}
+.langflag
+{
+	width: 250px;
+	height: 157px;
+}
+#ruflag
+{
+	background: url(../imgs/Flag_of_Russia.svg.png);
+	background-image: url(../imgs/Flag_of_Russia.svg.png);
+	background-size: cover;
+}
+#engflag
+{
+	background: url(../imgs/English_Language_Flag.png);
+	background-image: url(../imgs/English_Language_Flag.png);
+	background-size: cover;
+}
+
+#languageSelect li
+{
+		margin: 320px;
+}
+.ico
+{
+			border-radius: 2px;
+			width: 64px;
+			height: 64px;
+			position: absolute;
+			width: 100%;
+			transform: translateX(-50%);
+}
+.telegram-ico
+{
+		 	background-image: url(../imgs/telegram.svg);
+			background-repeat: no-repeat;
+			background-position:center;
+}
+.center
+{
+	text-align: center;
+	margin: 0 auto;
+	padding: 0 auto;
+	display: table;
+}
+#footinfo
+{
+	padding-top: 120px;
+}
+/*For mobile phone*/
+@media screen and (max-width: 620px) {
+	#languageSelect li
+	{
+		margin: 25px;
+	}
+}

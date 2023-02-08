@@ -1,44 +1,60 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Prosto pool vapseto</title>
-	<meta charset=utf-8>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-XSS-Protection" content="1"/>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; "/> -->
+    <link rel="stylesheet" href="/css/main.css">
+    <title></title>
 </head>
 <body>
-	<p>Welcome to Main page of prostapoolvapseto for testnet of gostcoin network</p>
-<p>instruction:</p><ol>
-<li> Firstly you will to start your GOSTCoin wallet in testnet mode. For it you will to add parameter -testnet for executable file<br/>if you use Windows click on right button of your mouse in directory with gostcoin.exe and found similar thing like "open terminal/cmd", after write there without squares `./gostcoin-qt -testnet`</li>
-<li> If you want to connect though ZeroTier (https://www.zerotier.com/) then join to the room: 0cccb752f7e2d268 then is IP of my pool there 192.168.196.126 just take it in mind for a while</li>
-<li> ... ... ... </li>
-<li> Download miner </li>
-<ul>
-	<li> For windows: <a href="minerForWindowsBundle.zip">WindowsBundle</a> and double click on .bat file. edit it. change to your worker and password</li>
-	<li> For linux: https://github.com/GOSTSec/cpuminer-gostd compile it </li>
-	<li> For an android download it: <a href="android.apk">android.apk</a>; or use userland if you know how to</li>
-</ul>
-</ol>
-<p><a href="ApiReference.html">Api reference</a></p>
+<nav class="uk-navbar-container" uk-navbar style="padding-left: 25px;">
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+        </ul>
+    </div>
+</nav>
+<noscript>
+Enable JavaScript for usage. Another way use JavaFX client for usage. Or our Telegram Bot. 
+---
+Hey, paranoid, enable javascript. they see you even without javascript.
+</noscript>
 
-<ol>
-	<li><a href="reg.html">registration</a></li>
-	<li><a href="auth.html">sign in</a></li>
-	<li><a href="output.html">output</a></li>
-	<li><a href="empty.html">future one-page website demo</a></li>
-</ol>
-
-<li>GetBalance: </li>
-<form action="/api" method="GET">
-	<input type="hidden" name="w" value="getbalance" />
-	WorkName: <input type=textarea name="ac"></br>
-	<input type=submit value=getBalance>
-</form>
-<a href=/dashboard?lang=en_US>Dashboard</a><br/>
-<a href=/api?w=ReserveGet>reserve</a>
-<pre>
-3334 - works with http type minerd. yeap. is give works for stratum. but not correct. so not use stratum protocol. is not yet works.
-http protocol realised that you can get works with small difficulty. all ok.
-and this use testnet servers
-</p>
-<!-- refactoring will be -->
-<script type="text/javascript">changeULang("en_US");</script>
+<!-- scripts -->
+<script src="/js/jquery.js" type="text/javascript"></script>
+<script src="/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="/js/cursor.js" type="text/javascript"></script>
+<script src="/js/functions.js" type="text/javascript"></script>
+<script src="/js/pages.js" type="text/javascript"></script>
+<script src="/js/uikit.min.js"></script>
+<script type="text/javascript">
+function loadNavbar()
+{
+	let navbar = $(".uk-navbar-nav")
+	if (!userIsSigned())
+	{
+	 navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('auth', 'Sign in')\">Sign in</a></li>")
+	 navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('reg', 'Registration')\">Registration</a></li>")	
+	}
+	else
+	{
+	  navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('user', 'Profile')\">Profile</a></li>")
+	  navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('exchange', 'Exchange')\">Exchange</a></li>")
+	  navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('withdraw', 'Withdraw')\">Widthdraw</a></li>")
+	  navbar.append("<li><a href=\"#\" onclick=\"loadTemplate('usersettings', 'User settings')\">Settings</a></li>")
+	  navbar.append("<li><a href=\"/restapi/graph.html\"\">Charts</a></li>")
+	  navbar.append("<li><a href=\"/restapi/en/cryptopool.html\"\">About pool</a></li>")
+	}
+}
+loadNavbar()
+changeULang("en_US")
+</script>
+<div id="content"></div>
+<div id='alertBox' style="display: none;">
+	<p id="alertTitle">ERROR!</p>
+	<b id="alertMsg"></b>
+	<p><button onclick="hideAlertBox()" id="alertButton">OK</button></p>
+</div>
 </body>
 </html>

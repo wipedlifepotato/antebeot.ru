@@ -13,7 +13,7 @@
 <center>
   <p>Register:</p>
 <noscript>
-	<form action="/registration" method="GET">
+	<form action="/restapi/registration" method="GET">
 </noscript>
    <div> <!--  -->
     WorkName: <input type=textarea id=workname name="workname"></br>
@@ -22,7 +22,7 @@
     Captcha text: <input type=text id=captchaText name="captchaText"></br>
     <button onclick="doRegistration()">Register</button>
   </div></br>
-  <img src="/captcha?w=get" alt="captcha" id="catpcha" > <br/>
+  <img src="/restapi/captcha?w=get" alt="captcha" id="catpcha" > <br/>
     <button onclick="reloadCaptcha()">reload captcha</button>
 </center>
 
